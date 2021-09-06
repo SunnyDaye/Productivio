@@ -7,8 +7,8 @@ function App() {
   <div className="App">
     <h1>useTimer Custom Hook</h1>
     <h2>{isRunning ? seconds : seconds}</h2>
-    <button onClick={start} disabled={isRunning}>Start</button>
-    <button onClick={pause} disabled={(!isRunning && isPaused)||!isRunning}>Pause</button>
+    <button onClick={start} disabled={isRunning && !isPaused}>Start</button>
+    <button onClick={pause} disabled={(isPaused)||!isRunning}>Pause</button>
     <button onClick={stop} disabled={!isRunning}>Stop</button>
   </div>
   );
