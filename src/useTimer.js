@@ -1,10 +1,12 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 const useTimer = (totalDuration) => {
   const [seconds, setSeconds] = useState(totalDuration);
   const [isRunning, setIsRunning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
   let timer = useRef(null); //stop needs access to the set interval in start
-  const start = () => {
+  const start = useCallback(() => {
     /*
             Start timer
             decremenet seconds ever 1s
@@ -16,16 +18,32 @@ const useTimer = (totalDuration) => {
       setSeconds((seconds) => seconds - 1);
     }, 1000); //will be called after one sec
     setIsRunning(true);
-  };
+    setIsPaused(false);
+  }, [setIsRunning, setSeconds]);
 
-  const stop = () => {
-    console.log("Timer is", timer);
+  const stop = useCallback(() => {
     clearInterval(timer.current);
     setIsRunning(false);
+    setIsPaused(false);
     setSeconds(totalDuration); //Reset timer to original value
-  };
+  }, [setIsRunning, setSeconds]);
 
-  return { isRunning, start, stop, seconds };
+  const pause = useCallback(() => { //same logic as stop but no seconds update
+    clearInterval(timer.current);
+    setIsPaused(true);
+    setIsRunning(false);
+  }, [setIsPaused, setSeconds]);
+
+  useEffect(() => {
+    if (seconds < 1) stop();
+  }, [seconds, stop]);
+
+  useEffect(() => {
+    //clean up timer if parent unmounts
+    return () => timer && clearInterval(timer.current);
+  }, []);
+
+  return { isRunning, start, stop, pause, isPaused, seconds };
 };
 
 export default useTimer;

@@ -68,7 +68,7 @@ I decided to break down this problem in smaller chunks. I will work on the custo
 I choose this approach so I do not have to focus on the added complexity of working with digits while I initially create the hook. 
 ### 2.2.1 Creating a seconds timer
 ##### How do I intend to use the hook?
-```const {isRunning, start, stop, seconds} = useTimer(totalDuration);```
+```const {isRunning, start, stop, pause, seconds} = useTimer(totalDuration);``` \
 The values recieved from the hook should be a boolean, a function to start, a function to stop, and the seconds left on the timer. 
 #### Initial Thoughts
 ##### Starting the timer
@@ -82,3 +82,12 @@ The need for setInterval is to accomplish regular one second intervals of elaspe
 ##### Stopping the timer
 
 Initially, I thought the solution was simple. Create a reference to setInterval and pass that reference into clearInterval. The challenge is due to the rerendering of the hook. My start function causes the hook to rerender and our reference to be recreated every render. When I call clearInterval in the stop function, the reference to the timer is undefined. After further research, I need to use the built-in hook useRef to prevent my timer reference from resetting its value every render.
+
+To autostop the timer when seconds is zero, I wrap the logic in useEffect since my expected values for seconds are in the asynchronous web api. This solution gives me a warning: \
+```The 'stop' function makes the dependencies of useEffect Hook (at line 30) change on every render. To fix this, wrap the definition of 'stop' in its own useCallback() Hook```
+
+I realized that wrapping my start and stop function in the useCallback hook will prevent my state changes from causing multiple rerenders that affect the current values of the state. This is useful if I need to start the timer in a useEffect hook in a parent component.
+
+##### Performance optimization
+I realize that when the parent componenet unmounts, the timer will continue. The timer does not need to run if our parent componenent is no longer needed. The solution is to pass a cleanup function into a useEffect hook to run once when the parent unmounts.
+
