@@ -66,3 +66,4 @@ I decided to break down this problem in smaller chunks. I will work on the custo
 
 I choose this approach so I do not have to focus on the added complexity of working with digits while I initially create the hook. 
 ### 2.2.1 Creating a seconds timer
+I
