@@ -3,8 +3,9 @@
 ___
 # 1.0 Table of Contents
 [1.1 Overview](#1.1Overview)
-[[README#^b8c54a| 1.2 How to Use]]
-[[README#^cee203| 1.3 License]]
+[1.2 How to Use](#1.2HowToUse)
+[1.3 License](#1.3License)
+[2.0 Notes](#2.0Notes)
 ___
 # 1.1 Overview
 
