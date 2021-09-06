@@ -2,19 +2,21 @@
 
 ___
 # 1.0 Table of Contents
-[[README#^ba390d | 1.1 Overview]]
-[[README#^b8c54a| 1.2 How to Use]]
-[[README#^cee203| 1.3 License]]
+[1.1 Overview](#11-Overview) \
+[1.2 How to Use](#12-How-to-Use) \
+[1.3 License](#13-License) \
+[2.0 Notes](#20-Notes) 
+___
 ___
 # 1.1 Overview
 
-^ba390d
+
 
 Productiv.io is both a pomodoro timer and todo app. Productiv.io uses postgres, express, react, and node. 
 ___
 # 1.2 How to Use
 
-^b8c54a
+
 
 1. Fork repo
 2. Clone repo to local machine
@@ -25,7 +27,7 @@ ___
 ___
 # 1.3 License
 
-^cee203
+
 
 MIT License
 
