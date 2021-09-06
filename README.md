@@ -2,10 +2,10 @@
 
 ___
 # 1.0 Table of Contents
-[1.1 Overview](#1.1Overview)
-[1.2 How to Use](#1.2HowToUse)
-[1.3 License](#1.3License)
-[2.0 Notes](#2.0Notes)
+[1.1 Overview](#1.1-Overview)
+[1.2 How to Use](#1.2-How-to-Use)
+[1.3 License](#1.3-License)
+[2.0 Notes](#2.0-Notes)
 ___
 # 1.1 Overview
 
