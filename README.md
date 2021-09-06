@@ -9,13 +9,13 @@ ___
 ___
 # 1.1 Overview
 
-^ba390d
+
 
 Productiv.io is both a pomodoro timer and todo app. Productiv.io uses postgres, express, react, and node. 
 ___
 # 1.2 How to Use
 
-^b8c54a
+
 
 1. Fork repo
 2. Clone repo to local machine
@@ -26,7 +26,7 @@ ___
 ___
 # 1.3 License
 
-^cee203
+
 
 MIT License
 
