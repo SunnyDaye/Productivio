@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
-const useTimer = (totalDuraton) => {
-  const [seconds, setSeconds] = useState(totalDuraton);
+const useTimer = (totalDuration) => {
+  const [seconds, setSeconds] = useState(totalDuration);
   const [isRunning, setIsRunning] = useState(false);
-  let timer; //stop needs access to the set interval in start
+  let timer = useRef(null); //stop needs access to the set interval in start
   const start = () => {
     /*
             Start timer
@@ -11,15 +11,18 @@ const useTimer = (totalDuraton) => {
             update the isRunning !!! true 
          */
 
-    timer = setInterval(() => {
+    timer.current = setInterval(() => {
       //setState is async. Send in callback for immediate update
       setSeconds((seconds) => seconds - 1);
     }, 1000); //will be called after one sec
     setIsRunning(true);
   };
+
   const stop = () => {
     console.log("Timer is", timer);
-    clearInterval(timer);
+    clearInterval(timer.current);
+    setIsRunning(false);
+    setSeconds(totalDuration); //Reset timer to original value
   };
 
   return { isRunning, start, stop, seconds };
