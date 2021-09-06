@@ -91,3 +91,6 @@ I realized that wrapping my start and stop function in the useCallback hook will
 ##### Performance optimization
 I realize that when the parent componenet unmounts, the timer will continue. The timer does not need to run if our parent componenent is no longer needed. The solution is to pass a cleanup function into a useEffect hook to run once when the parent unmounts.
 
+##### Pausing the timer
+The code is exactly the same as stopping the timer except we do not update the seconds state.
+
