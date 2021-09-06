@@ -2,7 +2,7 @@
 
 ___
 # 1.0 Table of Contents
-[1.1 Overview](#1.1 Overview)
+[1.1 Overview](#1.1Overview)
 [[README#^b8c54a| 1.2 How to Use]]
 [[README#^cee203| 1.3 License]]
 ___
