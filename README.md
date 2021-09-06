@@ -66,4 +66,14 @@ I decided to break down this problem in smaller chunks. I will work on the custo
 
 I choose this approach so I do not have to focus on the added complexity of working with digits while I initially create the hook. 
 ### 2.2.1 Creating a seconds timer
-I
+##### How do I intend to use the hook?
+``` const {isRunning, start, stop, seconds} = useTimer(totalDuration);```
+The values recieved from the hook should be a boolean, a function to start, a function to stop, and the seconds left on the timer. 
+#### Initial Thoughts
+##### Starting the timer
+Everytime one second elaspe, my seconds should decrement until seconds is zero. A high level psuedo solution would look like this:
+1. Elapse one second using setInterval
+2. Decrement current duration by one. The current duration or seconds should be held in a state. 
+3. set isRunning to true
+3. Repeat until zero or stop event is triggered
+The need for setInterval is to accomplish regular one second intervals of elasped time. Seconds should be a state because we need to render the remianing seconds on the timer to the user. The time elapse caused by setInterval should trigger a state change since seconds will be decreased by one. 
