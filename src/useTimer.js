@@ -26,12 +26,12 @@ const useTimer = (totalDuration) => {
     setIsRunning(false);
     setIsPaused(false);
     setSeconds(totalDuration); //Reset timer to original value
-  }, [setIsRunning, setSeconds]);
+  }, [setIsRunning, setSeconds, totalDuration]);
 
   const pause = useCallback(() => { //same logic as stop but no seconds update
     clearInterval(timer.current);
     setIsPaused(true);
-  }, [setIsPaused, setSeconds]);
+  }, [setIsPaused]);
 
   useEffect(() => {
     if (seconds < 1) stop();
