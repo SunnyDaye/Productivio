@@ -2,18 +2,23 @@
 
 ___
 # 1.0 Table of Contents
-[1.1 Overview](#11-Overview) \
-[1.2 How to Use](#12-How-to-Use) \
-[1.3 License](#13-License) \
-[2.0 Notes](#20-Notes) 
+
+[1.0 Overview](#11-Overview) \
+[1.1 How to Use](#12-How-to-Use) \
+[1.2 License](#13-License) \
+[2.0 Notes](#20-Notes/Blog) \
+&emsp;  [2.1 Goals](#21-Goals) \
+&emsp;  [2.2 Creating the useTimer custom hook](#22-Creating-the-useTimer-custom-hook)
+
+
 ___
-# 1.1 Overview
+# 1.0 Overview
 
 
 
 Productiv.io is both a pomodoro timer and todo app. Productiv.io uses postgres, express, react, and node. 
 ___
-# 1.2 How to Use
+# 1.1 How to Use
 
 
 
@@ -24,7 +29,7 @@ ___
 5. Run ```npm start``` to run project locally
 6.  Feel free to use this project and make edits. Enjoy!
 ___
-# 1.3 License
+# 1.2 License
 
 
 
@@ -52,7 +57,7 @@ SOFTWARE.
 
 ___
 
-# 2.0 Notes
+# 2.0 Notes/Blog
 ## 2.1 Goals
 - [ ] Create a Custom Hook called useTimer
 - [ ] Make the ToDos form editable on the card
@@ -63,7 +68,7 @@ ___
 I decided to break down this problem in smaller chunks. I will work on the custom hook like this:
 1. create a seconds timer hook
 2. create a minutes and seconds timer hook
-3. create a hours, minutes, and seconds timer hook
+3. ~~create a hours, minutes, and seconds timer hook~~ This will be apart of an additional feature.
 
 I choose this approach so I do not have to focus on the added complexity of working with digits while I initially create the hook. 
 ### 2.2.1 Creating a seconds timer
@@ -93,4 +98,7 @@ I realize that when the parent componenet unmounts, the timer will continue. The
 
 ##### Pausing the timer
 The code is exactly the same as stopping the timer except we do not update the seconds state.
+
+### 2.2.2 Creating a minutes timer
+I realize that editing the useTimer hook to include minutes is unneccessary. I can convert between seconds and minutes formatting in the parent commonpenet using my useTimer hook. I have decided to just make a timer componenet and handle formatting there. 
 
