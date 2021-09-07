@@ -1,0 +1,29 @@
+.pomodoro-timer {
+    width: 40%;
+    margin: 10% auto;
+    border-style: solid;
+    border-color: darkcyan;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 1px 1px rgb(70, 3, 70);
+    background-color: darkcyan;
+}
+.pomodoro-timer h1{
+    text-align: center;
+}
+.pomodoro-timer h2{
+    text-align: center;
+}
+.pomodoro-timer div {
+    display: flex;
+    justify-content: center;
+    margin: 5% 0;
+}
+.pomodoro-timer div .btn{
+    margin: 0 2px;
+}
+
+.pomodoro-timer span{
+    margin: auto 1%;
+
+}

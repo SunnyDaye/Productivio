@@ -28,7 +28,8 @@ const useTimer = (totalDuration) => {
     setSeconds(totalDuration); //Reset timer to original value
   }, [setIsRunning, setSeconds, totalDuration]);
 
-  const pause = useCallback(() => { //same logic as stop but no seconds update
+  const pause = useCallback(() => {
+    //same logic as stop but no seconds update
     clearInterval(timer.current);
     setIsPaused(true);
   }, [setIsPaused]);
