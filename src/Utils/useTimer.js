@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 
 const useTimer = (totalDuration) => {
+ 
   const [seconds, setSeconds] = useState(totalDuration);
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -36,10 +37,14 @@ const useTimer = (totalDuration) => {
 
   const increment = () => {
     setSeconds(seconds+1);
+    totalDuration = seconds + 1;
+    
   };
 
   const decrement = () => {
     setSeconds(seconds-1);
+    totalDuration = seconds - 1; //
+    
   };
 
   useEffect(() => {
