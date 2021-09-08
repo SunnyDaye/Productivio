@@ -4,18 +4,19 @@ import "./Pomodoro.css";
 export default function Pomodoro() {
   const [sessionDuration, setSessionDuration] = useState(25);
   const [breakDuration, setBreakDurations] = useState(5);
-  const [rerender,setRerender] = useState(false);
-  const { isRunning, start, stop, pause, isPaused, seconds, isSession} =
+  
+  const { isRunning, start, stop, pause, isPaused, seconds, isSession, increment, decrement} =
     usePomodoro(sessionDuration, breakDuration);
-    
+  
+
   return (
     <section className="pomodoro-timer">
       <h1>Deep Work Timer</h1>
       <h2>{isSession ? "Work Session": "Break Time"}</h2>
       <div className="timer">
-        <button type="button" onClick={()=> {setSessionDuration(sessionDuration-1); setRerender(true)}} className="btn btn-light">-</button>
+        <button type="button" onClick={decrement} className="btn btn-light">-</button>
         <span>{seconds}</span>
-        <button type="button" onClick={()=> {setSessionDuration(sessionDuration+1); setRerender(true)}} className="btn btn-light">+</button>
+        <button type="button" onClick={increment} className="btn btn-light">+</button>
       </div>
 
       <div className="controls">

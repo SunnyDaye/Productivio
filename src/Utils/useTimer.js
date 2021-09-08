@@ -34,6 +34,14 @@ const useTimer = (totalDuration) => {
     setIsPaused(true);
   }, [setIsPaused]);
 
+  const increment = () => {
+    setSeconds(seconds+1);
+  };
+
+  const decrement = () => {
+    setSeconds(seconds-1);
+  };
+
   useEffect(() => {
     if (seconds < 1) stop();
   }, [seconds, stop]);
@@ -43,7 +51,7 @@ const useTimer = (totalDuration) => {
     return () => timer && clearInterval(timer.current);
   }, []);
 
-  return { isRunning, start, stop, pause, isPaused, seconds };
+  return { isRunning, start, stop, pause, isPaused, seconds, increment, decrement };
 };
 
 export default useTimer;
